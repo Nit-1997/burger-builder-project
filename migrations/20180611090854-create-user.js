@@ -3,34 +3,21 @@ module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('users', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true
       },
-      facebookId: {
-        type: Sequelize.STRING
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      facebookToken: {
-        type: Sequelize.STRING
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      facebookName: {
-        type: Sequelize.STRING
-      },
-      facebookEmail: {
-        type: Sequelize.STRING
-      },
-      googleId: {
-        type: Sequelize.STRING
-      },
-      googleToken: {
-        type: Sequelize.STRING
-      },
-      googleEmail: {
-        type: Sequelize.STRING
-      },
-      googleName: {
-        type: Sequelize.STRING
+      contact: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -39,14 +26,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      age:{
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      gender:{
-        allowNull: false,
-        type: Sequelize.STRING
       }
     });
   },

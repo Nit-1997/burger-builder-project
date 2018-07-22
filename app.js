@@ -7,9 +7,12 @@ var  express        = require("express")
    , methodOverride = require("method-override")
    , models         = require('models')
    , routes         = require('routes')
-   , methodOverride = require("method-override");
+   , methodOverride = require("method-override")
+   , cors           = require('cors');
 
 
+
+app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 app.use(methodOverride("_method"));

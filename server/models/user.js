@@ -6,29 +6,17 @@ module.exports =  (sequelize, Sequelize) => {
       primaryKey: true,
       autoIncrement: true
     },
-    facebookId: {
-      type: Sequelize.STRING
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    facebookToken: {
-      type: Sequelize.STRING
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    facebookName: {
-      type: Sequelize.STRING
-    },
-    facebookEmail: {
-      type: Sequelize.STRING
-    },
-    googleId: {
-      type: Sequelize.STRING
-    },
-    googleToken: {
-      type: Sequelize.STRING
-    },
-    googleEmail: {
-      type: Sequelize.STRING
-    },
-    googleName: {
-      type: Sequelize.STRING
+    contact: {
+      type: Sequelize.STRING,
+      allowNull: true
     },
     createdAt: {
       allowNull: false,
@@ -37,18 +25,10 @@ module.exports =  (sequelize, Sequelize) => {
     updatedAt: {
       allowNull: false,
       type: Sequelize.DATE
-    },
-    age:{
-      allowNull: false,
-      type: Sequelize.INTEGER
-    },
-    gender:{
-      allowNull: false,
-      type: Sequelize.STRING
     }
   }, {});
-       userSchema.associate= function (models) {
-          userSchema.hasOne(models.transaction);
-      };
+  userSchema.associate= function (models) {
+    userSchema.hasOne(models.order);
+  };
   return userSchema;
 };

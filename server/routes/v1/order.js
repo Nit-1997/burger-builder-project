@@ -6,10 +6,10 @@ const router = express.Router();
 const functions = require('functions'),
     controllers = require('controllers');
 
-const transactionController = controllers.transaction;
+const orderController = controllers.order;
 
 router.route('/create')
-  .post(transactionController.create);
+  .post(orderController.create);
 
 server.use('/', router);
 

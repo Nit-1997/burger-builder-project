@@ -1,4 +1,4 @@
 module.exports = {
-  transaction: require('./transaction'),
+  order: require('./order'),
   user: require('./user')
 };
