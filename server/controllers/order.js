@@ -3,7 +3,6 @@ const config = require('config');
 const functions = require('functions');
 const models = require('models');
 const sequelize = models.sequelize;
-const order = models.order;
 
 module.exports = {
 	create: async function (req, res) {
@@ -21,7 +20,14 @@ module.exports = {
 		}catch(error) {
 			console.log(error);
 		}
+	},
+	getIngredients: async function (req, res) {
+		try{		
+			let data = await sequelize.query("select salad,bacon,cheese,meat from ingredients where id=1", {type: sequelize.QueryTypes.SELECT});
+			res.send(data);
+		}catch(error) {
+			console.log(error);
+		}
 	}
-
 }
 

@@ -11,6 +11,9 @@ const orderController = controllers.order;
 router.route('/create')
   .post(orderController.create);
 
+router.route('/getIngredients')
+      .get(orderController.getIngredients);
+
 server.use('/', router);
 
 module.exports = server;
