@@ -14,6 +14,9 @@ router.route('/create')
 router.route('/getIngredients')
       .get(orderController.getIngredients);
 
+router.route('/getOrders')
+      .get(orderController.getOrders);
+
 server.use('/', router);
 
 module.exports = server;

@@ -28,6 +28,14 @@ module.exports = {
 		}catch(error) {
 			console.log(error);
 		}
+	},
+	getOrders: async function(req,res){
+		try{
+          let data = await sequelize.query("select * from orders",{type: sequelize.QueryTypes.SELECT});
+          res.send(data);
+		}catch(error){
+			console.log(error);
+		}
 	}
 }
 
