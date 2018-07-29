@@ -11,6 +11,7 @@ state={
 componentDidMount(){
 	axios.get('/getOrders')
 		.then(response => {
+      console.log(response.data);
 			this.setState({orders:response.data,loading:false});
 		})
 		.catch(error => {
@@ -23,7 +24,10 @@ componentDidMount(){
             {this.state.orders.map(order =>(
                 <Order 
                    key={order.id}
-                   ingredients={order.order}
+                   salad={order.ingredients.salad}
+                   bacon={order.ingredients.bacon}
+                   cheese={order.ingredients.cheese}
+                   meat={order.ingredients.meat}
                    price={order.price}
                 />
              ))}
