@@ -27,9 +27,12 @@ module.exports = (sequelize, Sequelize) => {
     },
     price: {
       type: Sequelize.INTEGER,
-      allowNull: true
+      allowNull: false
     },
-    
+    deliveryMethod:{
+      type:Sequelize.STRING,
+      allowNull:false
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

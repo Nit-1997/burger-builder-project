@@ -9,10 +9,10 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const INGREDIENT_PRICES = {
- salad:0.5,
- bacon:0.4,
- cheese:1.3,
- meat:0.7
+ salad:20,
+ bacon:50,
+ cheese:20,
+ meat:50
 }
 
 class BurgerBuilder extends Component{
@@ -20,7 +20,7 @@ class BurgerBuilder extends Component{
    super(props);
    this.state = {
      ingredients:null,
-     totalPrice:4,
+     totalPrice:30,
      purchasable:false,
      purchasing:false,
      error:false,

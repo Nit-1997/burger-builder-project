@@ -8,14 +8,16 @@ module.exports = {
 	create: async function (req, res) {
 		try{
 			let order = req.body;
+			console.log(order);
 			let val = {
 				name:order.customer.name,
 				order:('salad:'+order.ingredients.salad+' bacon:'+order.ingredients.bacon+' cheese:'+order.ingredients.cheese+' meat:'+order.ingredients.meat),
 				address:order.customer.address.street+' '+order.customer.address.region+' '+order.customer.address.state+' '+order.customer.address.country,
 				pincode:order.customer.address.zipCode,
-				price:order.price
+				price:order.price,
+				deliveryMethod:order.customer.deliveryMethod
 			}
-			let data1 = await sequelize.query("INSERT INTO orders(userId,`order`,address,pincode,price,createdAt) VALUES(1,"+"'"+val.order+"'"+","+"'"+val.address+"'"+","+val.pincode+","+val.price+","+"'"+'2017-02-16 18:22:10.846'+"'"+")", {type: sequelize.QueryTypes.INSERT});
+			let data1 = await sequelize.query("INSERT INTO orders(userId,`order`,address,pincode,price,deliveryMethod,createdAt) VALUES(1,"+"'"+val.order+"'"+","+"'"+val.address+"'"+","+val.pincode+","+val.price+","+"'"+val.deliveryMethod+"'"+","+"'"+'2017-02-16 18:22:10.846'+"'"+")", {type: sequelize.QueryTypes.INSERT});
 			let data2 = await sequelize.query("INSERT INTO orderContents(orderId,salad,bacon,cheese,meat) VALUES("+data1[0]+","+"'"+order.ingredients.salad+"'"+","+"'"+order.ingredients.bacon+"'"+","+order.ingredients.cheese+","+order.ingredients.meat+")", {type: sequelize.QueryTypes.INSERT});
 			res.send(data1);
 		}catch(error) {
